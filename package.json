@@ -2,7 +2,10 @@
   "name": "@ntix/bind",
   "version": "0.0.0-development",
   "description": "a small dom binder",
-  "repository": {},
+  "repository": {
+    "url": "https://github.com/MrAntix/bind",
+    "type": "git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.js",
   "typings": "dist/types/index.d.ts",
