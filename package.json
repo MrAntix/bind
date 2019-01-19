@@ -1,6 +1,6 @@
 {
   "name": "@ntix/bind",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "a small dom binder",
   "repository": {},
   "main": "dist/index.js",
@@ -14,10 +14,11 @@
     "build": "tsc",
     "build.docs": "typedoc --out docs --mode file src --theme minimal --readme docs.md --media dist",
     "clean": "shx rm -rf dist",
-    "test": "jest "
+    "test": "jest ",
+    "semantic-release": "semantic-release"
   },
-  "engines" : {
-    "node" : "^10.15"
+  "engines": {
+    "node": "^10.15"
   },
   "keywords": [
     "binding",
@@ -35,7 +36,8 @@
     "shx": "^0.3.2",
     "ts-jest": "*",
     "typedoc": "^0.14.1",
-    "typescript": "^3.2.2"
+    "typescript": "^3.2.2",
+    "semantic-release": "^15.13.3"
   },
   "jest": {
     "preset": "ts-jest",
