@@ -2,7 +2,7 @@
 
 A small dom binder
 
-[![Build Status](https://travis-ci.org/MrAntix/bind.svg?branch=master)](https://travis-ci.org/MrAntix/bind)
+[![Build Status](https://travis-ci.org/MrAntix/bind.svg?branch=master)](https://travis-ci.org/MrAntix/bind) [![Greenkeeper badge](https://badges.greenkeeper.io/MrAntix/bind.svg)](https://greenkeeper.io/)
 
 [Documentation and working example](https://mrantix.github.io/bind/)
 
