@@ -15,6 +15,7 @@
     "build.docs": "typedoc --out docs --mode file src --theme minimal --readme docs.md --media dist",
     "clean": "shx rm -rf dist",
     "test": "jest ",
+    "commit": "npx git-cz",
     "semantic-release": "semantic-release"
   },
   "engines": {
@@ -35,12 +36,14 @@
   "dependencies": {},
   "devDependencies": {
     "@types/jest": "*",
+    "commitizen": "^3.0.5",
+    "cz-conventional-changelog": "^2.1.0",
     "jest": "*",
+    "semantic-release": "^15.13.3",
     "shx": "^0.3.2",
     "ts-jest": "*",
     "typedoc": "^0.14.1",
-    "typescript": "^3.2.2",
-    "semantic-release": "^15.13.3"
+    "typescript": "^3.2.2"
   },
   "jest": {
     "preset": "ts-jest",
@@ -50,6 +53,11 @@
     ],
     "moduleNameMapper": {
       "(.*)\\.js": "$1"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
