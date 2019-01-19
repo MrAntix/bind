@@ -16,6 +16,9 @@
     "clean": "shx rm -rf dist",
     "test": "jest "
   },
+  "engines" : {
+    "node" : ">=10.15"
+  },
   "keywords": [
     "binding",
     "dom",
