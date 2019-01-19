@@ -1,0 +1,47 @@
+{
+  "name": "@ntix/bind",
+  "version": "1.0.0",
+  "description": "a small dom binder",
+  "repository": {},
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "typings": "dist/types/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "build.docs": "typedoc --out docs --mode file src --theme minimal --readme docs.md --media dist",
+    "clean": "shx rm -rf dist",
+    "test": "jest "
+  },
+  "keywords": [
+    "binding",
+    "dom",
+    "attributes",
+    "properties",
+    "events"
+  ],
+  "author": "Anthony Johnston <npm@antix.co.uk> (http://antix.co.uk)",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "*",
+    "jest": "*",
+    "shx": "^0.3.2",
+    "ts-jest": "*",
+    "typedoc": "^0.14.1",
+    "typescript": "^3.2.2"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "verbose": true,
+    "testMatch": [
+      "**/*.spec.ts"
+    ],
+    "moduleNameMapper": {
+      "(.*)\\.js": "$1"
+    }
+  }
+}
