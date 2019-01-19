@@ -29,6 +29,9 @@
   ],
   "author": "Anthony Johnston <npm@antix.co.uk> (http://antix.co.uk)",
   "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {},
   "devDependencies": {
     "@types/jest": "*",
