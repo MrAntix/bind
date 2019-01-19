@@ -2,6 +2,8 @@
 
 A small dom binder
 
+[![Build Status](https://travis-ci.org/MrAntix/bind.svg?branch=master)](https://travis-ci.org/MrAntix/bind)
+
 [Documentation and working example](https://mrantix.github.io/bind/)
 
 ## example
