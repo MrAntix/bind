@@ -33,7 +33,7 @@ export function bind(rootElement: Document | Element, context: any): void {
           }
           if (getValue() !== value) setValue(value);
         },
-        get: getValue
+        get: getValue.bind(element)
       });
       component[binding.componentMemberName] =
         context[binding.contextMemberName];
@@ -43,7 +43,7 @@ export function bind(rootElement: Document | Element, context: any): void {
     getBindings(eventsExp, element, attributeNames).forEach(binding => {
       element.addEventListener(
         binding.componentMemberName,
-        context[binding.contextMemberName]
+        context[binding.contextMemberName].bind(element)
       );
     });
   });

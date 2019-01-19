@@ -50,7 +50,7 @@
   },
   "jest": {
     "preset": "ts-jest",
-    "verbose": true,
+    "verbose": false,
     "testMatch": [
       "**/*.spec.ts"
     ],
