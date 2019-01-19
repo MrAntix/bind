@@ -17,7 +17,7 @@
     "test": "jest "
   },
   "engines" : {
-    "node" : ">=10.15"
+    "node" : "^10.15"
   },
   "keywords": [
     "binding",
