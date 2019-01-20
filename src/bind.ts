@@ -23,20 +23,39 @@ export function bind(rootElement: Document | Element, context: any): void {
         Object.getOwnPropertyDescriptor(context, binding.contextMemberName) ||
         {};
 
-      let setValue = descriptor.set || (value => (descriptor.value = value));
-      let getValue = descriptor.get || (() => descriptor.value);
+      if (typeof descriptor.value === 'function') {
+        const fn = descriptor.value['fn'] || descriptor.value;
 
-      Object.defineProperty(context, binding.contextMemberName, {
-        set: function(value) {
+        const boundFunction = function() {
+          const value = fn.bind(element)();
           if (component[binding.componentMemberName] !== value) {
             component[binding.componentMemberName] = value;
           }
-          if (getValue() !== value) setValue(value);
-        },
-        get: getValue.bind(element)
-      });
-      component[binding.componentMemberName] =
-        context[binding.contextMemberName];
+          if (descriptor.value['fn']) descriptor.value();
+        };
+        boundFunction['fn'] = fn;
+
+        Object.defineProperty(context, binding.contextMemberName, {
+          value: boundFunction
+        });
+
+        boundFunction();
+      } else {
+        let getValue = descriptor.get || (() => descriptor.value);
+        let setValue = descriptor.set || (value => (descriptor.value = value));
+
+        Object.defineProperty(context, binding.contextMemberName, {
+          set: function(value) {
+            if (component[binding.componentMemberName] !== value) {
+              component[binding.componentMemberName] = value;
+            }
+            if (getValue() !== value) setValue(value);
+          },
+          get: getValue
+        });
+
+        component[binding.componentMemberName] = getValue.bind(element)();
+      }
     });
 
     //bind Events
