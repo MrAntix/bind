@@ -33,10 +33,9 @@ export function bind(rootElement: Document | Element, context: any): void {
           }
           if (getValue() !== value) setValue(value);
         },
-        get: getValue.bind(element)
+        get: getValue
       });
-      component[binding.componentMemberName] =
-        context[binding.contextMemberName];
+      component[binding.componentMemberName] = getValue.bind(element)();
     });
 
     //bind Events

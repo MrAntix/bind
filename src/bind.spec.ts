@@ -32,22 +32,24 @@ describe('bind', () => {
   });
 
   it('this is bound to element in getters', async () => {
-    document.documentElement.innerHTML = '<div bind [inner-html]="html"></div>';
+    document.documentElement.innerHTML = `
+      <div data-id="one" bind [inner-html]="html"></div>
+      <div data-id="two" bind [inner-html]="html"></div>
+    `;
 
-    const el = document.querySelector<HTMLElement>('[bind]');
-    let elThis: HTMLElement;
+    const els = document.querySelectorAll<HTMLElement>('[bind]');
 
     const context = {
       get html() {
-        elThis = this;
-        return '<span>inserted</span>';
+        return `<span>inserted ${this.dataset.id}</span>`;
       }
     };
 
     bind(document, context);
 
-    expect(el.innerHTML).toEqual(context.html);
-    expect(elThis).toBe(el);
+    expect(els[0].innerHTML).toEqual('<span>inserted one</span>');
+    expect(els[1].innerHTML).toEqual('<span>inserted two</span>');
+
   });
 
   it('this is bound to element in event handlers', async () => {
