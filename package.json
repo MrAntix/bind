@@ -38,15 +38,15 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@types/jest": "*",
-    "commitizen": "^3.0.5",
+    "@types/jest": "^24.0.11",
+    "commitizen": "^3.0.7",
     "cz-conventional-changelog": "^2.1.0",
-    "jest": "*",
-    "semantic-release": "^15.13.3",
+    "jest": "^24.7.1",
+    "semantic-release": "^15.13.8",
     "shx": "^0.3.2",
-    "ts-jest": "23.10.5",
-    "typedoc": "^0.14.1",
-    "typescript": "^3.2.2"
+    "ts-jest": "24.0.2",
+    "typedoc": "^0.14.2",
+    "typescript": "^3.4.2"
   },
   "jest": {
     "preset": "ts-jest",
