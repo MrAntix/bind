@@ -18,11 +18,33 @@ describe('bind', () => {
     expect(els[0].innerHTML).toEqual(context.html);
     expect(els[1].innerHTML).toEqual(context.html);
 
-    const update ='<span>updated</span>';
+    const update = '<span>updated</span>';
     context.html = update;
 
     expect(els[0].innerHTML).toEqual(update);
     expect(els[1].innerHTML).toEqual(update);
+  });
+
+  it('binds attributes when no context property', () => {
+    document.documentElement.innerHTML = `
+      <div bind [title]="title"></div>
+      <div bind [title]="title"></div>
+    `;
+
+    const context: any = {};
+
+    bind(document, context);
+
+    const els = document.querySelectorAll<HTMLElement>('[bind]');
+
+    expect(els[0].innerHTML).toEqual('');
+    expect(els[1].innerHTML).toEqual('');
+
+    const update = 'update';
+    context.title = update;
+
+    expect(els[0].title).toEqual(update);
+    expect(els[1].title).toEqual(update);
   });
 
   it('binds events', async () => {

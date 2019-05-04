@@ -41,6 +41,7 @@ export function bind(rootElement: Document | Element, context: any): void {
 
         boundFunction();
       } else {
+
         let getValue = descriptor.get || (() => descriptor.value);
         let setValue = descriptor.set || (value => (descriptor.value = value));
 
@@ -51,7 +52,8 @@ export function bind(rootElement: Document | Element, context: any): void {
             }
             if (getValue() !== value) setValue(value);
           },
-          get: getValue
+          get: getValue,
+          configurable: true
         });
 
         component[binding.componentMemberName] = getValue.bind(element)();

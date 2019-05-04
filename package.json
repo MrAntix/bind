@@ -17,7 +17,8 @@
     "build": "tsc",
     "build.docs": "typedoc --out docs --mode file src --theme minimal --readme docs.md --media dist",
     "clean": "shx rm -rf dist",
-    "test": "jest ",
+    "test": "jest",
+    "test.watch": "jest --watch",
     "commit": "npx git-cz",
     "semantic-release": "semantic-release"
   },
