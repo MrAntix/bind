@@ -3,7 +3,7 @@ import { watch } from './watch';
 describe('watch', () => {
   const prop = 'PROPERTY';
   const value = 'VALUE';
-  let o;
+  let o: any;
 
   beforeEach(() => {
     o = {};
