@@ -7,34 +7,61 @@ const eventsExp = /^\[?\{(.*)\}\]?$/;
  * Bind elements marked with the [bind] attribute to the context provided
  *
  * @param rootElement Root Element to query for bindable elements
- * @param context Context for data and handlers
+ * @param rootContext Context for data and handlers
  */
-export function bind(rootElement, context) {
+export function bind(rootElement, rootContext) {
     rootElement.querySelectorAll('[bind]').forEach(element => {
         const component = element;
         const attributeNames = element.getAttributeNames();
         // bind properties
         getBindings(propsExp, element, attributeNames).forEach(binding => {
-            const descriptor = Object.getOwnPropertyDescriptor(context, binding.contextMemberName) ||
+            const path = binding.contextMemberName.split('.');
+            let context = rootContext;
+            let memberName;
+            path.forEach((p, i) => {
+                memberName = p;
+                let value = context[memberName];
+                if (i < path.length - 1)
+                    context = value;
+            });
+            const descriptor = Object.getOwnPropertyDescriptor(context, memberName) ||
                 {};
-            let setValue = descriptor.set || (value => (descriptor.value = value));
-            let getValue = descriptor.get || (() => descriptor.value);
-            Object.defineProperty(context, binding.contextMemberName, {
-                set: function (value) {
+            if (typeof descriptor.value === 'function') {
+                const fn = descriptor.value['fn'] || descriptor.value;
+                const boundFunction = function () {
+                    const value = fn.bind(element)();
                     if (component[binding.componentMemberName] !== value) {
                         component[binding.componentMemberName] = value;
                     }
-                    if (getValue() !== value)
-                        setValue(value);
-                },
-                get: getValue
-            });
-            component[binding.componentMemberName] =
-                context[binding.contextMemberName];
+                    if (descriptor.value['fn'])
+                        descriptor.value();
+                };
+                boundFunction['fn'] = fn;
+                Object.defineProperty(context, memberName, {
+                    value: boundFunction
+                });
+                boundFunction();
+            }
+            else {
+                let getValue = descriptor.get || (() => descriptor.value);
+                let setValue = descriptor.set || (value => (descriptor.value = value));
+                Object.defineProperty(context, memberName, {
+                    set: function (value) {
+                        if (component[binding.componentMemberName] !== value) {
+                            component[binding.componentMemberName] = value;
+                        }
+                        if (getValue() !== value)
+                            setValue(value);
+                    },
+                    get: getValue,
+                    configurable: true
+                });
+                component[binding.componentMemberName] = getValue.bind(element)();
+            }
         });
         //bind Events
         getBindings(eventsExp, element, attributeNames).forEach(binding => {
-            element.addEventListener(binding.componentMemberName, context[binding.contextMemberName]);
+            element.addEventListener(binding.componentMemberName, rootContext[binding.contextMemberName].bind(element));
         });
     });
 }

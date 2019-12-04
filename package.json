@@ -19,6 +19,7 @@
     "clean": "shx rm -rf dist",
     "test": "jest",
     "test.watch": "jest --watch",
+    "start": "npm run build.docs && serve docs",
     "commit": "git add . && npx git-cz",
     "semantic-release": "semantic-release"
   },
@@ -43,7 +44,8 @@
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
     "jest": "^24.8.0",
-    "semantic-release": "^15.13.18",
+    "semantic-release": "^15.13.31",
+    "serve": "^11.2.0",
     "shx": "^0.3.2",
     "ts-jest": "24.0.2",
     "typedoc": "^0.15.0",

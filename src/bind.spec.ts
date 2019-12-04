@@ -25,6 +25,29 @@ describe('bind', () => {
     expect(els[1].innerHTML).toEqual(update);
   });
 
+  it('binds attributes to sub-objects', () => {
+    document.documentElement.innerHTML = `
+      <div bind [inner-html]="data.html"></div>
+    `;
+
+    const context = {
+      data: {
+        html: '<span>inserted</span>'
+      }
+    };
+
+    bind(document, context);
+
+    const el = document.querySelector<HTMLElement>('[bind]');
+
+    expect(el.innerHTML).toEqual(context.data.html);
+
+    const update = '<span>updated</span>';
+    context.data.html = update;
+
+    expect(el.innerHTML).toEqual(update);
+  });
+
   it('binds attributes when no context property', () => {
     document.documentElement.innerHTML = `
       <div bind [title]="title"></div>
@@ -58,7 +81,7 @@ describe('bind', () => {
     bind(document, context);
 
     const el = document.querySelector<HTMLElement>('[bind]');
-    await el.click();
+    el.click();
 
     expect(recievedEvent).not.toBeUndefined();
   });
@@ -96,7 +119,7 @@ describe('bind', () => {
     let elThis: HTMLElement;
 
     const context = {
-      onClick: function() {
+      onClick: function () {
         elThis = this;
       }
     };

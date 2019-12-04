@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@ntix/bind | @ntix/bind</title>
+	<title>IWatchHandler | @ntix/bind</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -2347,7 +2347,7 @@ img {
 		<div class="container">
 			<div class="table-wrap">
 				<div class="table-cell">
-					<strong><a href="index.html">@ntix/bind</a></strong>
+					<strong><a href="../index.html">@ntix/bind</a></strong>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -2378,439 +2378,71 @@ img {
 <nav class="tsd-navigation secondary">
 	<ul>
 		<li class=" tsd-kind-interface">
-			<a href="interfaces/ibinding.html" class="tsd-kind-icon">IBinding</a>
+			<a href="ibinding.html" class="tsd-kind-icon">IBinding</a>
 		</li>
 		<li class=" tsd-kind-interface">
-			<a href="interfaces/ibindingcomponent.html" class="tsd-kind-icon">IBinding<wbr>Component</a>
+			<a href="ibindingcomponent.html" class="tsd-kind-icon">IBinding<wbr>Component</a>
 		</li>
-		<li class=" tsd-kind-interface">
-			<a href="interfaces/iwatchhandler.html" class="tsd-kind-icon">IWatch<wbr>Handler</a>
-		</li>
-		<li class=" tsd-kind-function">
-			<a href="globals.html#bind" class="tsd-kind-icon">bind</a>
+		<li class="current tsd-kind-interface">
+			<a href="iwatchhandler.html" class="tsd-kind-icon">IWatch<wbr>Handler</a>
 		</li>
 		<li class=" tsd-kind-function">
-			<a href="globals.html#getbindingmembername" class="tsd-kind-icon">get<wbr>Binding<wbr>Member<wbr>Name</a>
+			<a href="../globals.html#bind" class="tsd-kind-icon">bind</a>
 		</li>
 		<li class=" tsd-kind-function">
-			<a href="globals.html#getbindings" class="tsd-kind-icon">get<wbr>Bindings</a>
+			<a href="../globals.html#getbindingmembername" class="tsd-kind-icon">get<wbr>Binding<wbr>Member<wbr>Name</a>
 		</li>
 		<li class=" tsd-kind-function">
-			<a href="globals.html#getvalue" class="tsd-kind-icon">get<wbr>Value</a>
+			<a href="../globals.html#getbindings" class="tsd-kind-icon">get<wbr>Bindings</a>
 		</li>
 		<li class=" tsd-kind-function">
-			<a href="globals.html#setvalue" class="tsd-kind-icon">set<wbr>Value</a>
+			<a href="../globals.html#getvalue" class="tsd-kind-icon">get<wbr>Value</a>
 		</li>
 		<li class=" tsd-kind-function">
-			<a href="globals.html#splitpath" class="tsd-kind-icon">split<wbr>Path</a>
+			<a href="../globals.html#setvalue" class="tsd-kind-icon">set<wbr>Value</a>
 		</li>
 		<li class=" tsd-kind-function">
-			<a href="globals.html#watch" class="tsd-kind-icon">watch</a>
+			<a href="../globals.html#splitpath" class="tsd-kind-icon">split<wbr>Path</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../globals.html#watch" class="tsd-kind-icon">watch</a>
 		</li>
 		<li class=" tsd-kind-object-literal tsd-is-not-exported">
-			<a href="globals.html#membermap" class="tsd-kind-icon">member<wbr>Map</a>
+			<a href="../globals.html#membermap" class="tsd-kind-icon">member<wbr>Map</a>
 		</li>
 	</ul>
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
-		<div class="tsd-panel tsd-typography">
-			<a href="#ntixbind" id="ntixbind" style="color: inherit; text-decoration: none;">
-				<h1>@ntix/bind</h1>
-			</a>
-			<p>A small dom binder</p>
-			<p><a href="https://github.com/MrAntix/bind/">github.com/MrAntix/bind</a></p>
-			<a href="#example" id="example" style="color: inherit; text-decoration: none;">
-				<h2>example</h2>
-			</a>
-			<pre style="display:flex">
-  <button bind [inner-text]="data.text" {click}="onClick" style="flex:1;padding:10px"></button>
-</pre>
-			<p>The button <strong>innerText</strong> property and <strong>click</strong> event are bound to a context as shown below, click the button to see it in action</p>
-			<script type="module">
-  import { bind } from './media/bind.js'
-
-  const context = {
-    data: { text: 'click me' },
-    onClick: e => {
-      e.stopPropagation();
-
-      context.data.text = 'thanks!';
-      setTimeout(() => {
-        context.data.text = 'click me again';
-      }, 2000);
-    }
-  }
-
-  bind(document, context);
-</script>
-			<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">bind</span> [<span class="hljs-attr">inner-text</span>]=<span class="hljs-string">"data.text"</span> {<span class="hljs-attr">click</span>}=<span class="hljs-string">"onClick"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"module"</span>&gt;</span><span class="javascript">
-  <span class="hljs-keyword">import</span> { bind } <span class="hljs-keyword">from</span> <span class="hljs-string">'./bind.js'</span>;
-
-  <span class="hljs-keyword">const</span> context = {
-    <span class="hljs-attr">text</span>: <span class="hljs-string">'click me'</span>,
-    <span class="hljs-attr">onClick</span>: <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
-      e.stopPropagation();
-
-      context.data.text = <span class="hljs-string">'thanks!'</span>;
-      setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-        context.data.text = <span class="hljs-string">'click me again'</span>;
-      }, <span class="hljs-number">2000</span>);
-    }
-  };
-
-  bind(<span class="hljs-built_in">document</span>, context);
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-		</div>
-		<div style="position:relative;"><a name="typedoc-main-index" class="tsd-anchor"></a></div>
-		<section class="tsd-panel-group tsd-index-group">
-			<h2>Index</h2>
-			<section class="tsd-panel tsd-index-panel">
-				<div class="tsd-index-content">
-					<section class="tsd-index-section ">
-						<h3>Interfaces</h3>
-						<ul class="tsd-index-list">
-							<li class="tsd-kind-interface"><a href="interfaces/ibinding.html" class="tsd-kind-icon">IBinding</a></li>
-							<li class="tsd-kind-interface"><a href="interfaces/ibindingcomponent.html" class="tsd-kind-icon">IBinding<wbr>Component</a></li>
-							<li class="tsd-kind-interface"><a href="interfaces/iwatchhandler.html" class="tsd-kind-icon">IWatch<wbr>Handler</a></li>
-						</ul>
-					</section>
-					<section class="tsd-index-section ">
-						<h3>Functions</h3>
-						<ul class="tsd-index-list">
-							<li class="tsd-kind-function"><a href="globals.html#bind" class="tsd-kind-icon">bind</a></li>
-							<li class="tsd-kind-function"><a href="globals.html#getbindingmembername" class="tsd-kind-icon">get<wbr>Binding<wbr>Member<wbr>Name</a></li>
-							<li class="tsd-kind-function"><a href="globals.html#getbindings" class="tsd-kind-icon">get<wbr>Bindings</a></li>
-							<li class="tsd-kind-function"><a href="globals.html#getvalue" class="tsd-kind-icon">get<wbr>Value</a></li>
-							<li class="tsd-kind-function"><a href="globals.html#setvalue" class="tsd-kind-icon">set<wbr>Value</a></li>
-							<li class="tsd-kind-function"><a href="globals.html#splitpath" class="tsd-kind-icon">split<wbr>Path</a></li>
-							<li class="tsd-kind-function"><a href="globals.html#watch" class="tsd-kind-icon">watch</a></li>
-						</ul>
-					</section>
-					<section class="tsd-index-section tsd-is-not-exported">
-						<h3>Object literals</h3>
-						<ul class="tsd-index-list">
-							<li class="tsd-kind-object-literal tsd-is-not-exported"><a href="globals.html#membermap" class="tsd-kind-icon">member<wbr>Map</a></li>
-						</ul>
-					</section>
-				</div>
-			</section>
+		<section class="tsd-panel tsd-hierarchy">
+			<h3>Hierarchy</h3>
+			<ul class="tsd-hierarchy">
+				<li>
+					<span class="target">IWatchHandler</span>
+				</li>
+			</ul>
 		</section>
-		<section class="tsd-panel-group tsd-member-group ">
-			<h2>Functions</h2>
-			<section class="tsd-panel tsd-member tsd-kind-function">
-				<a name="bind" class="tsd-anchor"></a>
-				<h3>bind</h3>
-				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">bind<span class="tsd-signature-symbol">(</span>rootElement<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Document</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Element</span>, rootContext<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/MrAntix/bind/blob/c81dbdd/src/bind.ts#L15">bind.ts:15</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Bind elements marked with the [bind] attribute to the context provided</p>
-							</div>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>rootElement: <span class="tsd-signature-type">Document</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Element</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>Root Element to query for bindable elements</p>
-								</div>
-							</li>
-							<li>
-								<h5>rootContext: <span class="tsd-signature-type">any</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>Context for data and handlers</p>
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function">
-				<a name="getbindingmembername" class="tsd-anchor"></a>
-				<h3>get<wbr>Binding<wbr>Member<wbr>Name</h3>
-				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">get<wbr>Binding<wbr>Member<wbr>Name<span class="tsd-signature-symbol">(</span>attributeName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/MrAntix/bind/blob/c81dbdd/src/getBindingMemberName.ts#L7">getBindingMemberName.ts:7</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<dl class="tsd-comment-tags">
-								<dt>internal</dt>
-								<dd><p>Get the corresponding member name for a given attribute name
-									(ie snake=&gt;camel case)</p>
-								</dd>
-							</dl>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>attributeName: <span class="tsd-signature-type">string</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>Attribute name</p>
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function">
-				<a name="getbindings" class="tsd-anchor"></a>
-				<h3>get<wbr>Bindings</h3>
-				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">get<wbr>Bindings<span class="tsd-signature-symbol">(</span>exp<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RegExp</span>, element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span>, attributeNames<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/ibinding.html" class="tsd-signature-type">IBinding</a><span class="tsd-signature-symbol">[]</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/MrAntix/bind/blob/c81dbdd/src/getBindings.ts#L11">getBindings.ts:11</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<dl class="tsd-comment-tags">
-								<dt>internal</dt>
-								<dd><p>Get all the attribute bindings on the given element</p>
-								</dd>
-							</dl>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>exp: <span class="tsd-signature-type">RegExp</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>Expression used to find attributes to bind to</p>
-								</div>
-							</li>
-							<li>
-								<h5>element: <span class="tsd-signature-type">Element</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>Element to be bound</p>
-								</div>
-							</li>
-							<li>
-								<h5>attributeNames: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>names of attibutes on the element</p>
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="interfaces/ibinding.html" class="tsd-signature-type">IBinding</a><span class="tsd-signature-symbol">[]</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function">
-				<a name="getvalue" class="tsd-anchor"></a>
-				<h3>get<wbr>Value</h3>
-				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">get<wbr>Value<span class="tsd-signature-symbol">(</span>context<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in getValue.ts:9</li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>gets a value from a context by property path</p>
-							</div>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>context: <span class="tsd-signature-type">any</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>context object to get the value from</p>
-								</div>
-							</li>
-							<li>
-								<h5>path: <span class="tsd-signature-type">string</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>property path to the value</p>
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function">
-				<a name="setvalue" class="tsd-anchor"></a>
-				<h3>set<wbr>Value</h3>
-				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">set<wbr>Value<span class="tsd-signature-symbol">(</span>rootContext<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in setValue.ts:28</li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Set a value on the context object by path, will build the object as it goes</p>
-							</div>
-							<p>*nb not idempotent will change the value passed in, see below for idempotent call</p>
-							<dl class="tsd-comment-tags">
-								<dt>example</dt>
-								<dd><pre><code><span class="hljs-keyword">const</span> <span class="hljs-keyword">data</span> = {};
-setValue(<span class="hljs-keyword">data</span>, <span class="hljs-string">'p[0].p'</span>, <span class="hljs-string">'v'</span>);
-
-==&gt; <span class="hljs-keyword">data</span> : { p: [{ p: <span class="hljs-string">'v'</span> }] }
-
-<span class="hljs-comment">// get a new object, idempotent call</span>
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">data</span> = {};
-<span class="hljs-keyword">const</span> newData = setValue({...<span class="hljs-keyword">data</span>}, <span class="hljs-string">'p[0].p'</span>, <span class="hljs-string">'v'</span>);
-
-==&gt; <span class="hljs-keyword">data</span> : { }
-==&gt; newData : { p: [{ p: <span class="hljs-string">'v'</span> }] }
-</code></pre></dd>
-							</dl>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>rootContext: <span class="tsd-signature-type">any</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>context object to set value on</p>
-								</div>
-							</li>
-							<li>
-								<h5>path: <span class="tsd-signature-type">string</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>property path to value</p>
-								</div>
-							</li>
-							<li>
-								<h5>value: <span class="tsd-signature-type">any</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>value to set</p>
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						<p>the root context again (for convenience)</p>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function">
-				<a name="splitpath" class="tsd-anchor"></a>
-				<h3>split<wbr>Path</h3>
-				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">split<wbr>Path<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in splitPath.ts:6</li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Split a property path in to an array of properties</p>
-							</div>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>path: <span class="tsd-signature-type">string</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>property path to split</p>
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function">
-				<a name="watch" class="tsd-anchor"></a>
-				<h3>watch</h3>
-				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">watch<span class="tsd-signature-symbol">(</span>o<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, property<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">: </span><a href="interfaces/iwatchhandler.html" class="tsd-signature-type">IWatchHandler</a>, once<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/MrAntix/bind/blob/c81dbdd/src/watch.ts#L3">watch.ts:3</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>o: <span class="tsd-signature-type">any</span></h5>
-							</li>
-							<li>
-								<h5>property: <span class="tsd-signature-type">string</span></h5>
-							</li>
-							<li>
-								<h5>handler: <a href="interfaces/iwatchhandler.html" class="tsd-signature-type">IWatchHandler</a></h5>
-							</li>
-							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> once: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-siganture">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</section>
-		</section>
-		<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
-			<h2>Object literals</h2>
-			<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-is-not-exported">
-				<a name="membermap" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> member<wbr>Map</h3>
-				<div class="tsd-signature tsd-kind-icon">member<wbr>Map<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/MrAntix/bind/blob/c81dbdd/src/getBindingMemberName.ts#L16">getBindingMemberName.ts:16</a></li>
-					</ul>
-				</aside>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
-					<a name="membermap.inner_html" class="tsd-anchor"></a>
-					<h3>inner-<wbr>html</h3>
-					<div class="tsd-signature tsd-kind-icon">inner-<wbr>html<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;innerHTML&quot;</span></div>
+		<section class="tsd-panel">
+			<h3 class="tsd-before-signature">Callable</h3>
+			<ul class="tsd-signatures tsd-kind-interface">
+				<li class="tsd-signature tsd-kind-icon">__call<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+			</ul>
+			<ul class="tsd-descriptions">
+				<li class="tsd-description">
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/MrAntix/bind/blob/c81dbdd/src/getBindingMemberName.ts#L17">getBindingMemberName.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/MrAntix/bind/blob/c81dbdd/src/IWatchHandler.ts#L1">IWatchHandler.ts:1</a></li>
 						</ul>
 					</aside>
-				</section>
-			</section>
+					<h4 class="tsd-parameters-title">Parameters</h4>
+					<ul class="tsd-parameters">
+						<li>
+							<h5><span class="tsd-flag ts-flagOptional">Optional</span> value: <span class="tsd-signature-type">any</span></h5>
+						</li>
+					</ul>
+					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+				</li>
+			</ul>
 		</section>
 		<footer class="with-border-bottom">
 			<div class="container">
