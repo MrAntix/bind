@@ -1,8 +1,8 @@
-import { splitPath } from './splitPath';
+import { splitPath } from './splitPath.js';
 
 /**
  * Set a value on the context object by path, will build the object as it goes
- * 
+ *
  * *nb not idempotent will change the value passed in, see below for idempotent call
  *
  * @param rootContext context object to set value on
