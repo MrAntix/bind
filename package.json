@@ -47,7 +47,7 @@
     "semantic-release": "^17.0.4",
     "serve": "^11.3.0",
     "shx": "^0.3.2",
-    "ts-jest": "25.2.1",
+    "ts-jest": "25.3.0",
     "typedoc": "^0.17.0",
     "typescript": "^3.8.3"
   },
