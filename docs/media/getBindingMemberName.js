@@ -13,3 +13,4 @@ export function getBindingMemberName(attributeName) {
 const memberMap = {
     'inner-html': 'innerHTML'
 };
+//# sourceMappingURL=getBindingMemberName.js.map

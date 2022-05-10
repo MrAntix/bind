@@ -1,4 +1,4 @@
-import { splitPath } from './splitPath';
+import { splitPath } from './splitPath.js';
 /**
  * gets a value from a context by property path
  *
@@ -16,3 +16,4 @@ export function getValue(context, path) {
     ;
     return context;
 }
+//# sourceMappingURL=getValue.js.map

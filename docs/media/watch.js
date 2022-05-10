@@ -22,3 +22,4 @@ export function watch(o, property, handler, once = false) {
     });
     return unwatch;
 }
+//# sourceMappingURL=watch.js.map

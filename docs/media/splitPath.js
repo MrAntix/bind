@@ -11,3 +11,4 @@ export function splitPath(path) {
         return isNaN(n) ? p : n;
     });
 }
+//# sourceMappingURL=splitPath.js.map

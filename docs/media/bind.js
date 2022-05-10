@@ -65,3 +65,4 @@ export function bind(rootElement, rootContext) {
         });
     });
 }
+//# sourceMappingURL=bind.js.map

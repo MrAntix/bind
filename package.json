@@ -15,16 +15,13 @@
   "scripts": {
     "prebuild": "npm run clean",
     "build": "tsc",
-    "build.docs": "typedoc --out docs --mode file src --theme minimal --readme docs.md --media dist",
+    "build.docs": "typedoc --out docs src --readme docs.md --media dist",
     "clean": "shx rm -rf dist",
     "test": "jest",
     "test.watch": "jest --watch",
     "start": "npm run build.docs && serve docs",
     "commit": "git add . && npx git-cz",
     "semantic-release": "semantic-release"
-  },
-  "engines": {
-    "node": ">10.15"
   },
   "keywords": [
     "binding",
@@ -38,21 +35,22 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {},
   "devDependencies": {
-    "@types/jest": "^26.0.20",
-    "commitizen": "^4.2.3",
+    "@types/jest": "^27.5.0",
+    "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
-    "jest": "^26.6.3",
-    "semantic-release": "^17.3.8",
-    "serve": "^11.3.2",
-    "shx": "^0.3.3",
-    "ts-jest": "^26.5.1",
-    "typedoc": "^0.20.24",
-    "typescript": "^4.1.5"
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0",
+    "semantic-release": "^19.0.2",
+    "serve": "^13.0.2",
+    "shx": "^0.3.4",
+    "ts-jest": "^28.0.2",
+    "typedoc": "^0.22.15",
+    "typescript": "^4.6.4"
   },
   "jest": {
     "preset": "ts-jest",
+    "testEnvironment": "jsdom",
     "verbose": false,
     "testMatch": [
       "**/*.spec.ts"

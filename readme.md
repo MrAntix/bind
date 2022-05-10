@@ -18,7 +18,6 @@ A small dom binder
   const context = {
     text: 'click me',
     onClick: e => {
-      e.stopPropagation();
 
       context.text = 'thanks!';
       setTimeout(() => {
