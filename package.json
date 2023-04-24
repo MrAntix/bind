@@ -41,7 +41,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
-    "semantic-release": "^19.0.2",
+    "semantic-release": "^21.0.1",
     "serve": "^13.0.2",
     "shx": "^0.3.4",
     "ts-jest": "^28.0.2",
