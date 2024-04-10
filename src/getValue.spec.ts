@@ -8,7 +8,7 @@ describe('getValue', () => {
     const data = { p: expected };
     const result = getValue(data, 'p');
     expect(result).toBe(expected);
-  })
+  });
 
   it('indexer', () => {
 
@@ -16,7 +16,7 @@ describe('getValue', () => {
     const data = { p: [expected] };
     const result = getValue(data, 'p[0]');
     expect(result).toBe(expected);
-  })
+  });
 
   it('indexer deeper', () => {
 
@@ -24,19 +24,19 @@ describe('getValue', () => {
     const data = { p: [{ p: expected }] };
     const result = getValue(data, 'p[0].p');
     expect(result).toBe(expected);
-  })
+  });
 
   it('indexer deeper empty context', () => {
 
     const data = { };
     const result = getValue(data, 'p[0].p');
     expect(result).toBe(undefined);
-  })
+  });
 
   it('indexer deeper null context', () => {
 
     const data = null;
     const result = getValue(data, 'p[0].p');
     expect(result).toBe(undefined);
-  })
-})
+  });
+});

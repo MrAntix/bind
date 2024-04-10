@@ -21,10 +21,10 @@ export function bind(rootElement: Document | Element, rootContext: any): void {
     getBindings(propsExp, element, attributeNames).forEach(binding => {
       const path = binding.contextMemberName.split('.');
       let context = rootContext;
-      let memberName: string;
+      let memberName: string = '';
       path.forEach((p, i) => {
         memberName = p;
-        let value = context[memberName];
+        const value = context[memberName];
         if (i < path.length - 1)
           context = value;
       });
@@ -52,8 +52,8 @@ export function bind(rootElement: Document | Element, rootContext: any): void {
         boundFunction();
       } else {
 
-        let getValue = descriptor.get || (() => descriptor.value);
-        let setValue = descriptor.set || (value => (descriptor.value = value));
+        const getValue = descriptor.get || (() => descriptor.value);
+        const setValue = descriptor.set || (value => (descriptor.value = value));
 
         Object.defineProperty(context, memberName, {
           set: function (value) {

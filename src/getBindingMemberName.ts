@@ -7,12 +7,12 @@
 export function getBindingMemberName(attributeName: string): string {
   return (
     memberMap[attributeName] ||
-    attributeName.replace(/(\-\w)/g, function(match) {
+    attributeName.replace(/(-\w)/g, function (match) {
       return match[1].toUpperCase();
     })
   );
 }
 
-const memberMap = {
+const memberMap: { [k: string]: string } = {
   'inner-html': 'innerHTML'
 };

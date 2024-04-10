@@ -38,7 +38,8 @@ describe('bind', () => {
 
     bind(document, context);
 
-    const el = document.querySelector<HTMLElement>('[bind]');
+    const el = document.querySelector<HTMLElement>('[bind]')!;
+    expect(el).not.toBeNull();
 
     expect(el.innerHTML).toEqual(context.data.html);
 
@@ -73,14 +74,16 @@ describe('bind', () => {
   it('binds events', async () => {
     document.documentElement.innerHTML = '<div bind {click}="onClick"></div>';
 
-    let recievedEvent: Event;
+    let recievedEvent: Event = null!;
     const context = {
       onClick: (e: Event) => (recievedEvent = e)
     };
 
     bind(document, context);
 
-    const el = document.querySelector<HTMLElement>('[bind]');
+    const el = document.querySelector<HTMLElement>('[bind]')!;
+    expect(el).not.toBeNull();
+
     el.click();
 
     expect(recievedEvent).not.toBeUndefined();
@@ -115,18 +118,20 @@ describe('bind', () => {
   it('this is bound to element in event handlers', async () => {
     document.documentElement.innerHTML = '<div bind {click}="onClick"></div>';
 
-    const el = document.querySelector<HTMLElement>('[bind]');
-    let elThis: HTMLElement;
+    const el = document.querySelector<HTMLElement>('[bind]')!;
+    expect(el).not.toBeNull();
+
+    let elThis: HTMLElement = null!;
 
     const context = {
-      onClick: function () {
-        elThis = this;
+      onClick: function (e: MouseEvent) {
+        elThis = e.currentTarget as HTMLElement;
       }
     };
 
     bind(document, context);
 
-    await el.click();
+    el.click();
 
     expect(elThis).toBe(el);
   });

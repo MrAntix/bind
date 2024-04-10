@@ -14,6 +14,7 @@ export function getBindings(
   element: Element,
   attributeNames: string[]
 ): IBinding[] {
+
   return attributeNames
     .map(attributeName => ({
       attributeName,
@@ -22,6 +23,6 @@ export function getBindings(
     .filter(d => !!d.bindingAttributeName)
     .map(d => ({
       componentMemberName: getBindingMemberName(d.bindingAttributeName),
-      contextMemberName: element.getAttribute(d.attributeName)
+      contextMemberName: element.getAttribute(d.attributeName)!
     }));
 }

@@ -9,12 +9,12 @@ import { splitPath } from './splitPath.js';
 export function getValue(context: any, path: string): any {
 
   const props = splitPath(path);
-  for (var i = 0; i < props.length; i++) {
+  for (let i = 0; i < props.length; i++) {
     if (context == null) return undefined;
 
-    const prop = props[i]
+    const prop = props[i];
     context = context[prop];
-  };
+  }
 
   return context;
 }
