@@ -26,6 +26,7 @@
   ],
   "exclude": [
     "src/**/*.spec.ts",
+    "docs",
     "node_modules"
   ]
 }
