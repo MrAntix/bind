@@ -28,7 +28,7 @@ export function setValue(rootContext, path, value) {
     const props = splitPath(path);
     let prop;
     let context = rootContext;
-    for (var i = 0; i < props.length; i++) {
+    for (let i = 0; i < props.length; i++) {
         prop = props[i];
         if (i < props.length - 1) {
             context = context[prop] == null
@@ -39,7 +39,6 @@ export function setValue(rootContext, path, value) {
             context[prop] = value;
         }
     }
-    ;
     return rootContext;
 }
 //# sourceMappingURL=setValue.js.map

@@ -6,7 +6,7 @@
  */
 export function getBindingMemberName(attributeName) {
     return (memberMap[attributeName] ||
-        attributeName.replace(/(\-\w)/g, function (match) {
+        attributeName.replace(/(-\w)/g, function (match) {
             return match[1].toUpperCase();
         }));
 }

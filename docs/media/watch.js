@@ -1,7 +1,7 @@
 export function watch(o, property, handler, once = false) {
     const descriptor = Object.getOwnPropertyDescriptor(o, property) || {};
-    let getValue = descriptor.get || (() => descriptor.value);
-    let setValue = descriptor.set || (value => (descriptor.value = value));
+    const getValue = descriptor.get || (() => descriptor.value);
+    const setValue = descriptor.set || (value => (descriptor.value = value));
     const unwatch = () => {
         delete o[property];
         o[property] = getValue();
