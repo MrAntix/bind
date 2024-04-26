@@ -1,0 +1,36 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: npm install, build, test
+      run: |
+        npm i
+        npm run build
+        npm run test
+
+        git config --global user.email "mrantix@users.noreply.github.com"
+        git config --global user.name "MrAntix"
+
+        if git show-ref --quiet refs/heads/docs; then
+           git branch -D docs
+        fi
+
+        git checkout -b docs
+
+        npm run build.docs
+        git add -f ./docs
+        git commit -m"docs: update"
+
+        git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/mrantix/bind.git
+        git push origin docs --force
+    env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
