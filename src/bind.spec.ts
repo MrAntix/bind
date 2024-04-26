@@ -97,7 +97,7 @@ describe('bind', () => {
 
     const els = document.querySelectorAll<HTMLElement>('[bind]');
 
-    const context = {
+    const context: any = {
       html() {
         return `<span>inserted ${this.dataset.id}</span>`;
       }
