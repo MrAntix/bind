@@ -4,7 +4,18 @@
 
 ## example
 
-<div>
+<style>
+  #markup button {
+    font-size: 2rem;
+    padding: 1em 2em;
+    color: #fff;
+    background-color: #369;
+    border: none;
+    border-radius: .2em;
+  }
+</style>
+
+<div id="markup">
   <button bind [inner-text]="data.text" {click}="onClick">[A Button]</button>
 </div>
 
