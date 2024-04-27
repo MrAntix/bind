@@ -1,14 +1,12 @@
-# @ntix/bind
-
-A small dom binder
+## A small dom binder
 
 [github.com/MrAntix/bind](https://github.com/MrAntix/bind/)
 
 ## example
 
-<pre style="display:flex">
-  <button bind [inner-text]="data.text" {click}="onClick" style="flex:1;padding:10px"></button>
-</pre>
+<div>
+  <button bind [inner-text]="data.text" {click}="onClick">[A Button]</button>
+</div>
 
 The button **innerText** property and **click** event are bound to a context as shown below, click the button to see it in action
 
