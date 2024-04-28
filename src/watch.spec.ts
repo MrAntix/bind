@@ -16,6 +16,7 @@ describe('watch', () => {
     });
 
     o[prop] = value;
+    // eslint-disable-next-line sonarjs/no-element-overwrite
     o[prop] = value;
 
     expect(counter).toBe(2);
@@ -33,13 +34,14 @@ describe('watch', () => {
     );
 
     o[prop] = value;
+    // eslint-disable-next-line sonarjs/no-element-overwrite
     o[prop] = value;
 
     expect(counter).toBe(1);
   });
 
   it('unwatches and keeps set value', () => {
-    const unwatch = watch(o, prop, () => {});
+    const unwatch = watch(o, prop, () => { });
 
     o[prop] = value;
     unwatch();
@@ -57,6 +59,7 @@ describe('watch', () => {
     });
 
     o[prop] = value;
+    // eslint-disable-next-line sonarjs/no-element-overwrite
     o[prop] = value;
 
     expect(counter).toBe(4);
