@@ -30,11 +30,10 @@ export function bind(rootElement: Document | Element, rootContext: any): void {
       });
 
       const descriptor =
-        Object.getOwnPropertyDescriptor(context, memberName) ||
-        {};
+        Object.getOwnPropertyDescriptor(context, memberName) ?? {};
 
       if (typeof descriptor.value === 'function') {
-        const fn = descriptor.value['fn'] || descriptor.value;
+        const fn = descriptor.value['fn'] ?? descriptor.value;
 
         const boundFunction = function () {
           const value = fn.bind(element)();
@@ -52,8 +51,8 @@ export function bind(rootElement: Document | Element, rootContext: any): void {
         boundFunction();
       } else {
 
-        const getValue = descriptor.get || (() => descriptor.value);
-        const setValue = descriptor.set || (value => (descriptor.value = value));
+        const getValue = descriptor.get ?? (() => descriptor.value);
+        const setValue = descriptor.set ?? (value => (descriptor.value = value));
 
         Object.defineProperty(context, memberName, {
           set: function (value) {

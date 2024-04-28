@@ -34,9 +34,8 @@ export function setValue(rootContext: any, path: string, value: any): any {
     prop = props[i];
 
     if (i < props.length - 1) {
-      context = context[prop] == null
-        ? (context[prop] = Number.isInteger(props[i + 1] as any) ? [] : {})
-        : context[prop];
+      context = context[prop]
+        ?? (context[prop] = Number.isInteger(props[i + 1] as any) ? [] : {});
 
     } else {
       context[prop] = value;

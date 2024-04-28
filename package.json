@@ -19,6 +19,7 @@
     "build.docs": "typedoc --out docs src --readme docs.md --media dist",
     "clean": "shx rm -rf dist",
     "test": "jest",
+    "test.coverage": "jest --coverage",
     "test.watch": "jest --watch",
     "start": "npm run build.docs && serve docs",
     "commit": "git add . && npx git-cz",
