@@ -15,11 +15,10 @@ describe('watch', () => {
       counter++;
     });
 
-    o[prop] = value;
-    // eslint-disable-next-line sonarjs/no-element-overwrite
-    o[prop] = value;
+    for (let i = 0; i < 3; i++)
+      o[prop] = value;
 
-    expect(counter).toBe(2);
+    expect(counter).toBe(3);
   });
 
   it('watches for change once', () => {
@@ -33,9 +32,8 @@ describe('watch', () => {
       true
     );
 
-    o[prop] = value;
-    // eslint-disable-next-line sonarjs/no-element-overwrite
-    o[prop] = value;
+    for (let i = 0; i < 3; i++)
+      o[prop] = value;
 
     expect(counter).toBe(1);
   });
@@ -58,10 +56,9 @@ describe('watch', () => {
       counter++;
     });
 
-    o[prop] = value;
-    // eslint-disable-next-line sonarjs/no-element-overwrite
-    o[prop] = value;
+    for (let i = 0; i < 3; i++)
+      o[prop] = value;
 
-    expect(counter).toBe(4);
+    expect(counter).toBe(6);
   });
 });
