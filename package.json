@@ -17,7 +17,7 @@
     "lint": "eslint --fix",
     "prebuild": "npm run clean && npm run lint",
     "build": "tsc",
-    "build.docs": "typedoc --out docs src --readme docs.md --media dist",
+    "build.docs": "typedoc --out docs src --readme docs.md && shx cp -r dist docs/media",
     "clean": "shx rm -rf dist",
     "test": "jest",
     "test.coverage": "jest --coverage",
